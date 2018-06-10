@@ -50,11 +50,11 @@ func main() {
 		STEP++
 
 		if errCounter > 2 {
-			fmt.Println("You are loose. Wrong trying:", errCounter)
+			fmt.Println("You loose.")
 			break
 		}
 		if victCounter > 9 {
-			fmt.Println("You are WIN. Right trying:", victCounter)
+			fmt.Println("You WIN.")
 			break
 		}
 
@@ -68,7 +68,6 @@ func timerProcess(Timer *time.Timer, step *int) {
 	stepTmp = *step
 	mapA, _ := json.Marshal(map[int]int{stepTmp: fibonachi(stepTmp)})
 	fmt.Println(string(mapA))
-	//fmt.Println("{\"", stepTmp, "\":\"", fibonachi(stepTmp), "\"}")
 	*step++
 	Timer.Reset(10 * time.Second)
 	go timerProcess(Timer, step)
